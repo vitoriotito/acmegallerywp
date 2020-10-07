@@ -1,52 +1,70 @@
+
+
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/app.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+  context: __dirname,
+  entry: {
+    frontend: ['./src/app.js', './src/scss/app.scss'],
+    customizer: './js/customizer.js'
   },
+  output: {
+    path: path.resolve(__dirname, 'public'),
+    filename: '[name]-bundle.js'
+  },
+  mode: 'development',
+  devtool: 'cheap-eval-source-map',
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
-        use: [
-          {
-            // Adds CSS to the DOM by injecting a `<style>` tag
-            loader: 'style-loader'
-          },
-          {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  'autoprefixer'
-                ],
-              },
-            },
-          },
-          {
-            // Loads a SASS/SCSS file and compiles it to CSS
-            loader: 'sass-loader'
-          }
-        ]
+        enforce: 'pre',
+        exclude: /node_modules/,
+        test: /\.jsx$/,
+        loader: 'eslint-loader'
       },
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.jsx?$/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.s?css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: true,
+          spriteFilename: 'svg-defs.svg'
+        }
+      },
+      {
+        test: /\.(gif|svg|jpg|png)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 8192,
-            },
-          }
+              outputPath: 'images/',
+              name: '[name].[ext]'
+            }
+          },
+          'img-loader'
         ]
       }
     ]
+  },
+  plugins: [
+    new StyleLintPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
+  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()]
   }
 };

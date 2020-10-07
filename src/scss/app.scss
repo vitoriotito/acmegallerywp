@@ -2,14 +2,11 @@
 @import "./hamburguer_settings";
 //Hamburguer custom
 
-
 // Bootstrap
 // @import "../../node_modules/bootstrap/scss/functions";
 // @import "../../node_modules/bootstrap/scss/variables";
 // @import "../../node_modules/bootstrap/scss/mixins";
 // @import "../../node_modules/bootstrap/scss/utilities";
-
-
 
 // // Components
 // @import "../../node_modules/bootstrap/scss/reboot";
@@ -26,10 +23,6 @@
 
 //Hamburguer
 @import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
-
 @import "./_base";
 @import "./_layout";
 @import "./_components";
-
-
-
