@@ -57,7 +57,7 @@
 		<div class="collapse navbar-collapse d-flex-md justify-content-end text-right mt-2" id="acmeGallery-menu" >
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="btn btn-acme " href="#">LOGIN</a>
+					<a class="btn btn-acme " href="<?php echo wp_login_url( site_url() ); ?>">LOGIN</a>
 				</li>   
 			</ul>
 		</div>  

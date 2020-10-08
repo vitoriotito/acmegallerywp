@@ -1,20 +1,23 @@
-@media (max-width: 992px) {
-
-	.container-md {
-		margin: 0;
-		padding: 0;
-	}
-}
 
 .container-md {
 	margin: auto;
 	padding: 0;
+	@media (max-width: 992px) {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 .navbar {
 
 	@include grid;
 	margin: 1rem auto 0.7rem;
+}
+
+.navbar-expand-md {
+	@media (min-width: 768px) {
+		justify-content: space-between;
+	}
 }
 
 .banner {

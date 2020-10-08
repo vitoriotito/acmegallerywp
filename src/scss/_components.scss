@@ -21,10 +21,13 @@
 }
 
 .navbar-brand {
-	width:  100%;
 	&__image {
 		margin-bottom: -0.35rem;
 	}
+}
+
+.main-navigation {
+	width: auto;
 }
 
 .btn-acme {
@@ -36,6 +39,10 @@
 
 	&:hover {
 		background-color: lighten($color-primary, 10%);
+		color: $color-lightest;
+	}
+
+	&:visited {
 		color: $color-lightest;
 	}
 }

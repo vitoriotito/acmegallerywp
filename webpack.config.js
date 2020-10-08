@@ -59,7 +59,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new StyleLintPlugin(),
+    // new StyleLintPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css'
     }),
