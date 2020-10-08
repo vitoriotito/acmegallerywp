@@ -7233,6 +7233,7 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: "Roboto", sans-serif !important; }
 
+<<<<<<< HEAD
 .container-md {
   margin: auto;
   padding: 0; }
@@ -7240,6 +7241,16 @@ body {
     .container-md {
       margin: 0;
       padding: 0; } }
+=======
+@media (max-width: 992px) {
+  .container-md {
+    margin: 0;
+    padding: 0; } }
+
+.container-md {
+  margin: auto;
+  padding: 0; }
+>>>>>>> f438064d94b204eafc2a86b7f7552a0de517f55b
 
 .navbar {
   width: 86.7%;
@@ -7247,10 +7258,13 @@ body {
   margin: 0 auto;
   margin: 1rem auto 0.7rem; }
 
+<<<<<<< HEAD
 @media (min-width: 768px) {
   .navbar-expand-md {
     justify-content: space-between; } }
 
+=======
+>>>>>>> f438064d94b204eafc2a86b7f7552a0de517f55b
 .banner__container {
   position: relative;
   background-image: url(images/banner.png);
@@ -7311,11 +7325,18 @@ body {
   .hamburger--slider .hamburger-inner::before {
     width: 1.5rem; }
 
+<<<<<<< HEAD
 .navbar-brand__image {
   margin-bottom: -0.35rem; }
 
 .main-navigation {
   width: auto; }
+=======
+.navbar-brand {
+  width: 100%; }
+  .navbar-brand__image {
+    margin-bottom: -0.35rem; }
+>>>>>>> f438064d94b204eafc2a86b7f7552a0de517f55b
 
 .btn-acme {
   color: #fff;
@@ -7326,8 +7347,11 @@ body {
   .btn-acme:hover {
     background-color: #ce669a;
     color: #fff; }
+<<<<<<< HEAD
   .btn-acme:visited {
     color: #fff; }
+=======
+>>>>>>> f438064d94b204eafc2a86b7f7552a0de517f55b
 
 .fa-search {
   color: #fff;
