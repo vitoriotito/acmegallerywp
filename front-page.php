@@ -26,6 +26,20 @@ global $wp_query;
 		>
 
 		<?php
+			$post_type = ( get_post_type() ? get_post_type(): 'acme_gallery' );
+			do_action('acme_header_banner', $post_type );
+		?>
+
+		<!-- SEARCH -->
+		<section class="search justify-content-center justify-content-md-end">
+		<div class="row col-12 col-md-6 justify-content-center justify-content-md-end">
+
+				<?php get_search_form(); ?>
+				
+		</div>
+		</section>
+
+		<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && is_front_page() ) :
@@ -37,19 +51,7 @@ global $wp_query;
 			endif;
 
 
-			do_action('acme_header_banner',get_post_type());
-
-			?>
-
-		<!-- SEARCH -->
-		<section class="search justify-content-center justify-content-md-end">
-			<div class="row col-12 col-md-6 justify-content-center justify-content-md-end">
-
-					<?php get_search_form(); ?>
-					
-			</div>
-		</section>
-
+		?>
 
 		<section class="gallery">
 			<div class="gallery__container row">

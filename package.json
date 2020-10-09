@@ -60,6 +60,7 @@
     "@babel/polyfill": "^7.6.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.0.0",
+    "dir-archiver": "^1.1.2",
     "hamburgers": "^1.1.3",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.9"
@@ -85,7 +86,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,scss}\"",
     "stylelint": "stylelint \"src/**/*.{css,scss}\"",
     "stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
-    "wp-pot": "wp-pot --src '*.php' --dest-file 'languages/_s.pot' --domain '_s'"
+    "wp-pot": "wp-pot --src '*.php' --dest-file 'languages/_s.pot' --domain '_s'",
+    "bundle": "dir-archiver --src . --dest ../acmegallerytheme.zip --exclude acmegallerytheme.zip .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
   },
   "main": "webpack.config.js"
 }

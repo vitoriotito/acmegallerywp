@@ -26,15 +26,16 @@ add_action( 'init', 'create_acme_gallery_posttype' );
 
 //Acme Gallery theme configuration 
 
-function acmegallery_configuration() {
-  $author = get_role( 'author' )->capabilities;
-  //Add role with no capabilities
-  add_role( 'gallery_author', 'Gallery author' );
 
-}
 
-add_action( 'after_setup_theme', 'acmegallery_configuration', $author );
+  function acmegallery_configuration() {
+    if ( !get_option( 'acme_ga_role_created' ) ) {
+      add_role( 'gallery_author', 'Gallery author' );
+    }
+   update_option( 'acme_ga_role_created', true );
+  }
 
+  add_action( 'after_setup_theme', 'acmegallery_configuration', $author );
 
 
 

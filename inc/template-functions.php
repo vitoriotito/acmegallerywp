@@ -38,7 +38,7 @@ add_action( 'wp_head', 'acmegallery_pingback_header' );
 
 
 
-function acme_front_banner( $post_type ) {
+function acme_front_banner( $post_type = 'acme_gallery' ) {
 
 	if ( 'acme_gallery' == $post_type && is_front_page() ) {
 			get_template_part('template-parts/banner', $post_type);
