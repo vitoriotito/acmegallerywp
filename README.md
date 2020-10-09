@@ -4,7 +4,14 @@ Acme Gallery Theme
 
 Installation
 ---------------
+Install ```acmegallerytheme.zip```  from your WordPress installation
+Sql dump also provided (local.sql)
+Admin credentials:
+user: acgalmin
+pass: min20ac21meLlery
 
+Header and footer logo provided in assets/images.
+They can be configured from the Customizer.
 
 ### Setup
 
