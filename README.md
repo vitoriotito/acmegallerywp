@@ -4,7 +4,7 @@ Acme Gallery Theme
 
 Installation
 ---------------
-Install ```acmegallerytheme.zip```  from your WordPress installation
+Install `acmegallerytheme.zip` from your WordPress installation
 Sql dump also provided (local.sql)
 Admin credentials:
 user: acgalmin
