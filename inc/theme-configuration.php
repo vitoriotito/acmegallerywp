@@ -1,5 +1,7 @@
 <?php 
 
+
+
 // CPT Acmegallery Setup
 
 function create_acme_gallery_posttype() {
@@ -34,6 +36,10 @@ add_action( 'init', 'create_acme_gallery_posttype' );
     }
    update_option( 'acme_ga_role_created', true );
   }
+
+
+  // Include Bootstrap nav walker 
+  include_once( get_template_directory()  . '/inc/class-wp-bootstrap-navwalker.php' );
 
   add_action( 'after_setup_theme', 'acmegallery_configuration', $author );
 
@@ -183,4 +189,12 @@ function custom_search_form( $form ) {
 add_filter( 'get_search_form', 'custom_search_form', 100 );
 
 
+//Add login btn at the end of the list
 
+add_filter( 'wp_nav_menu_items', 'add_login_to_nav', 10, 2 );
+
+function add_login_to_nav( $items, $args )
+{
+    $items .= '<a class="btn btn-acme " href="' . wp_login_url( site_url() ) . '">LOGIN</a>';
+    return $items;
+}

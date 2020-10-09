@@ -54,13 +54,39 @@
 				<span class="hamburger-inner"></span>
 			</span>
 		</button>
-		<div class="collapse navbar-collapse d-flex-md justify-content-end text-right mt-2" id="acmeGallery-menu" >
+		<!-- <div class="collapse navbar-collapse d-flex-md justify-content-end text-right mt-2" id="acmeGallery-menu" >
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="btn btn-acme " href="<?php echo wp_login_url( site_url() ); ?>">LOGIN</a>
-				</li>   
-			</ul>
-		</div>  
+				</li>   -->
+				<?php
+				// wp_nav_menu(
+				// 	array(
+				// 		'theme_location' => 'menu-1',
+				// 		'menu_id'        => 'acmeGallery-menu',
+				// 		'container-class'=> 'collapse navbar-collapse d-flex-md justify-content-end text-right mt-2'
+				// 	)
+				// );
+
+				wp_nav_menu( array(
+					'theme_location'  => 'menu-1',
+					'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+					'container'       => 'div',
+					'container_class' => 'collapse navbar-collapse',
+					'container_id'    => 'acmeGallery-menu',
+					'menu_class'      => 'collapse navbar-collapse d-flex-md justify-content-end text-right mt-2',
+					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'          => new WP_Bootstrap_Navwalker(),
+			) );
+
+			?> 
+			<!-- </ul>
+		</div>   -->
+
+	
+
+
+
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 	<!-- END NAV -->

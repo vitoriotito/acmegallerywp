@@ -32,7 +32,7 @@
 	<div class="card-body">
 		<h6 class="card-title"> <?php echo get_the_author_meta( 'display_name' ) ?> </h6>
 		<ul class="card-text">
-			<?php echo get_the_term_list( $post->ID, 'hashtags', '<li class="hashtag">', ', ', '</li>' ) ?>
+			<?php echo get_one_term_list( $post->ID, 'hashtags', '<li class="hashtag">', ', ', '</li>' ) ?>
 		</ul>
 	</div>
 </div>	

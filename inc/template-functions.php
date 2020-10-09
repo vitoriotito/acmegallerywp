@@ -99,3 +99,41 @@ function load_more_posts()
 }
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
+
+
+function get_one_term_list( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
+	$terms = get_the_terms( $post_id, $taxonomy );
+
+	if ( is_wp_error( $terms ) ) {
+			return $terms;
+	}
+
+	if ( empty( $terms ) ) {
+			return false;
+	}
+
+	$links = array();
+
+
+			$link = get_term_link( $terms[0], $taxonomy );
+			if ( is_wp_error( $link ) ) {
+					return $link;
+			}
+			$links[] = '<a href="' . esc_url( $link ) . '" rel="tag">' . $terms[0]->name . '</a>';
+	
+
+	/**
+	 * Filters the term links for a given taxonomy.
+	 *
+	 * The dynamic portion of the filter name, `$taxonomy`, refers
+	 * to the taxonomy slug.
+	 *
+	 * @since 2.5.0
+	 *
+	 * @param string[] $links An array of term links.
+	 */
+	$term_links = apply_filters( "term_links-{$taxonomy}", $links );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+
+	return $before . join( $sep, $term_links ) . $after;
+}

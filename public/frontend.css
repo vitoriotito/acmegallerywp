@@ -7311,11 +7311,27 @@ body {
   .hamburger--slider .hamburger-inner::before {
     width: 1.5rem; }
 
-.navbar-brand__image {
-  margin-bottom: -0.35rem; }
+.navbar-brand {
+  z-index: 30; }
+  .navbar-brand__image {
+    margin-bottom: -0.35rem; }
 
 .main-navigation {
   width: auto; }
+  @media (max-width: 768px) {
+    .main-navigation {
+      position: absolute;
+      top: 0;
+      right: -20px;
+      z-index: 10;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; } }
+
+@media (max-width: 768px) {
+  #acmeGallery-menu {
+    padding: 1rem; } }
 
 .btn-acme {
   color: #fff;
