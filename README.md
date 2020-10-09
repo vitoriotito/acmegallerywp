@@ -11,6 +11,7 @@ Sql dump also provided (local.sql).
 Admin credentials:
 
 user: acgalmin
+
 pass: min20ac21meLlery
 
 Header and footer logo provided in assets/images.
