@@ -84,16 +84,24 @@ function create_hashtag_taxonomy() {
 }
 
 
-add_action('wp_dropdown_users_args', 'filter_authors');
-function filter_authors( $args ) {
+
+
+
+//Filter authors
+
+function filter_authors( $args, $r) {
+  
 	if ( isset( $args['who'])) {
-    $args['role__in'] = ['gallery_author'];
+    $args['role'] = ['gallery_author'];   
+    $args['role__in'] = ['gallery_author'];    
+    $args['role__not_in'] = ['administrator'];  
 		unset( $args['who']);
   }
-  
- 
+   
 	return $args;
 }
+
+add_action('wp_dropdown_users_args', 'filter_authors', 10, 2);
 
 
 
