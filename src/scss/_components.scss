@@ -135,6 +135,10 @@
 	&__card {
 		margin-bottom: 1.87rem;
 		border: none;
+
+		& .post-thumbnail {
+			display: flex;
+		}
 	}
 
 	&__no-more-posts {
@@ -158,15 +162,27 @@
 		background-color: $color-lighter;
 		border-bottom-left-radius: 0.5rem;
 		border-bottom-right-radius: 0.5rem;
+		flex-shrink: 1;
+    max-height: 20%;
 	}
 
 	&__image {
 		display: flex;
 		align-items: center;
+		width: 20%;
+
+		@media (max-width: 768px) {
+			width: fit-content;
+		}
+
 
 		& img {
 			border-radius: 50%;
 		}
+	}
+
+	&__featured-image {
+		object-fit: contain;
 	}
 }
 

@@ -5,5 +5,23 @@ $(".hamburger--slider").on('click', function() {
 });
 
 
+$(window).on('load', function() {
+  homeImageAspectRatio();
+});
+
+$(window).on('resize', function() {
+  homeImageAspectRatio();
+} );
+
+function homeImageAspectRatio() {
+  let images = $('.gallery__card .post-thumbnail img');
+  if ( images ) {
+    let w = $(images[0]).width();
+    images.each( ( i, obj ) => {
+      $(obj).height( w * 0.79 + 'px' );      
+    });
+  }
+}
 
 
+export default homeImageAspectRatio;

@@ -23,7 +23,7 @@
 
 	</header><!-- .entry-header -->
 
-	<?php acmegallery_post_thumbnail( 'card-img-top' ); ?>
+	<?php acmegallery_post_thumbnail( 'card-img-top img-fluid card-body__featured-image' ); ?>
 	<div class="row card-body__container col-12" >
 
 	<div class=" card-body__image">  

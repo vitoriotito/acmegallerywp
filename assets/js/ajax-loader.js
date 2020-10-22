@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import homeImageAspectRatio from './main.js';
 
 const ajaxLoadMore = () => {
 
@@ -26,21 +26,17 @@ const ajaxLoadMore = () => {
 
           gallery_container.innerHTML += res.data.data;
 
-          let getUrl = window.location;
-          let baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
-
-          window.history.pushState('', '', baseUrl + 'page/' + (parseInt(document.querySelector('.posts-list').dataset.page) + 1));
-
-          console.log(parseInt(document.querySelector('.posts-list').dataset.page));
-
           document.querySelector('.posts-list').dataset.page++;
 
           if (document.querySelector('.posts-list').dataset.page == document.querySelector('.posts-list').dataset.max) {
             button.parentNode.removeChild(button);
           }
-
+          
         })
-
+        .then ( () => {
+          homeImageAspectRatio();
+        });
+        
     });
 
   }

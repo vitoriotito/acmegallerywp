@@ -7388,6 +7388,8 @@ body {
 .gallery__card {
   margin-bottom: 1.87rem;
   border: none; }
+  .gallery__card .post-thumbnail {
+    display: flex; }
 
 .gallery__no-more-posts {
   margin: auto;
@@ -7405,12 +7407,20 @@ body {
     min-height: 4.43rem;
     background-color: #ececec;
     border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem; }
+    border-bottom-right-radius: 0.5rem;
+    flex-shrink: 1;
+    max-height: 20%; }
   .card-body__image {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    width: 20%; }
+    @media (max-width: 768px) {
+      .card-body__image {
+        width: fit-content; } }
     .card-body__image img {
       border-radius: 50%; }
+  .card-body__featured-image {
+    object-fit: contain; }
 
 .card-text {
   list-style-type: none;
